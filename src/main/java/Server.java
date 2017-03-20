@@ -8,7 +8,7 @@ import java.net.ServerSocket;
 public class Server {
     public static void main(String[] args) throws IOException {
         System.setProperty("javax.net.ssl.keyStore","za.store");
-        System.setProperty("javax.net.ssl.keyStorePassword","heineken12");
+        System.setProperty("javax.net.ssl.keyStorePassword","vetManager");
         ServerSocket server=((SSLServerSocketFactory) SSLServerSocketFactory.getDefault()).createServerSocket(4444);
         while (true) {
             new ServerThread(server.accept()).start();
