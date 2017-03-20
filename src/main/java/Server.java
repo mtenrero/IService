@@ -1,5 +1,3 @@
-package Server;
-
 import javax.net.ssl.SSLServerSocketFactory;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -14,7 +12,7 @@ public class Server {
         ServerSocket server=((SSLServerSocketFactory) SSLServerSocketFactory.getDefault()).createServerSocket(4444);
         while (true) {
             new ServerThread(server.accept()).start();
-            System.out.print("ACTIVADO");
+            System.out.print("ACTIVADO\n");
         }
     }
 }

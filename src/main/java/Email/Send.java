@@ -11,8 +11,8 @@ public class Send {
         // Spring Bean file you specified in /src/main/resources folder
         String crunchifyConfFile = "settings.xml";
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(crunchifyConfFile);
-        Email crunchifyEmailAPI = (Email) context.getBean("Email");
+        Email EmailAPI = (Email) context.getBean("Email");
         String fromAddr = "vetmanagerApp@gmail.com";
-        crunchifyEmailAPI.ReadyToSendEmail(toAddr, fromAddr, subject, body);
+        EmailAPI.ReadyToSendEmail(toAddr, fromAddr, subject, body);
     }
 }

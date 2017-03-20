@@ -1,4 +1,4 @@
-package Server;
+import Email.Send;
 
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -18,11 +18,11 @@ public class ServerThread extends Thread {
         try{
             InputStream is = socket.getInputStream();
             ObjectInputStream ois = new ObjectInputStream(is);
-            int i = ois.readInt();
-            String today = (String) ois.readObject();
-            Date date = (Date) ois.readObject();
+            String email = (String) ois.readObject();
+            String subject = (String) ois.readObject();
+            String body = (String) ois.readObject();
+            new Send().send(email,subject,body);
             ois.close();
-            System.out.println(i);
         }catch (Exception e){
             e.printStackTrace();
         }
