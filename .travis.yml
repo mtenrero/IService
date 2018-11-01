@@ -1,0 +1,19 @@
+language: java
+sudo: required
+
+services:
+- docker
+
+cache:
+  directories:
+  - "$HOME/.cache"
+  - "$Home/.m2"
+
+jdk:
+- oraclejdk8
+
+script:
+- mvn package
+- docker build -t vetmanager/iservice
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- docker push vetmanger/iservice
