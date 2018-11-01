@@ -16,4 +16,4 @@ script:
 - mvn package
 - docker build -t vetmanager/iservice .
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker push vetmanger/iservice
+- docker push vetmanger/iservice:latest
